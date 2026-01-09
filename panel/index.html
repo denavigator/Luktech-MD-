@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LukTech MD Panel Deploy</title>
+<style>
+body { font-family: Arial; padding: 20px; background:#f4f4f4; }
+input, button { padding:10px; margin:5px; width: 300px; }
+button { cursor:pointer; background:#2f8fff; color:white; border:none; }
+h1 { color:#333; }
+</style>
+</head>
+<body>
+<h1>LukTech MD Panel Deploy</h1>
+<form id="deployForm">
+<input type="text" id="botName" placeholder="Bot Name (LukTech MD)" required /><br/>
+<input type="text" id="owner" placeholder="Owner WhatsApp Number" required /><br/>
+<input type="text" id="prefix" placeholder="Command Prefix (.)" value="." required /><br/>
+<button type="submit">Deploy Bot</button>
+</form>
+<pre id="output"></pre>
+<script>
+const form=document.getElementById("deployForm");
+const output=document.getElementById("output");
+form.addEventListener("submit", async (e)=>{
+e.preventDefault();
+const botName=document.getElementById("botName").value;
+const owner=document.getElementById("owner").value;
+const prefix=document.getElementById("prefix").value;
+output.textContent="Creating config and starting bot...";
+try{
+const response=await fetch("/deploy",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({botName,owner,prefix})});
+const data=await response.json();
+output.textContent=data.message;
+}catch(err){output.textContent="Error: "+err.message;}
+});
+</script>
+</body>
+</html>
