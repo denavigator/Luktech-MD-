@@ -26,10 +26,14 @@
 ## 🌐 Open Pair Site (Render)
 
 [![Open Pair Site](https://img.shields.io/badge/Open-Pair%20Site-blue?style=for-the-badge)](https://YOUR_RENDER_DEPLOY_URL/qr)
+---
+https://img.shields.io/badge/Open-Pair%20Site-blue?style=for-the-badge
+---
 
 > Open this site to scan the QR code and pair your WhatsApp session.
-
+___
 ---
+
 
 ## 🚀 One-Click Deploy
 
